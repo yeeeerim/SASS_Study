@@ -1,0 +1,56 @@
+/*
+    여러줄 주석 : css로 변환될 때 보임
+*/
+
+// ex-1 : 한 줄 주석은 css 로 변환되었을 때 보이지 않음
+nav {
+  background: lightcoral;
+  padding: 10px;
+  height: 50px;
+  ul {
+    display: flex;
+    justify-content: flex-end;
+    list-style: none;
+    li {
+      color: white;
+      margin-right: 10px;
+    }
+  }
+}
+
+// ex-2
+.background-img {
+  width: 100%;
+  height: auto;
+  background: {
+    image: url("./sample.jpg");
+    position: center center;
+    repeat: no-repeat;
+  }
+}
+
+// ex-3
+.box {
+  width: 300px;
+  height: 300px;
+  background-color: red;
+  transition: all 1s;
+  &:hover {
+    background-color: blue;
+  }
+}
+
+// ex-4
+.one {
+  color: red;
+  .two {
+    color: green;
+    .three {
+      color: blue;
+      @at-root p {
+        // 바깥으로 나옴
+        color: lightskyblue;
+      }
+    }
+  }
+}
