@@ -8,4 +8,18 @@
 > 1. 스타일시트가 복잡해짐에 따라 유지관리를 용이하게 하기 위함 (코드 재사용 가능)
 > 2. 변수, 네이스팅, 믹스인, 가져오기, 상속, 내장기능 등 CSS에는 없는 편의 기능들이 존재하여 시간 절약 가능
 
-## [1] 파일 분리와 Nesting
+## 내용 정리
+
+<details>
+<summary>[1] 파일 분리와 Nesting</summary>
+<div markdown="1">
+
+1. 파일 분리
+
+> ![image](https://user-images.githubusercontent.com/58348662/147811980-1b4b0f6c-915b-4d84-96e7-02b7e9100f59.png)
+
+2. Nesting
+
+</div>
+</details>
+
