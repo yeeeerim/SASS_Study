@@ -11,14 +11,82 @@
 ## 내용 정리
 
 <details>
-<summary>[1] 파일 분리와 Nesting</summary>
+<summary> [1] 파일 분리와 Nesting</summary>
 <div markdown="1">
+<br/>
+📌 파일 분리  
+<br/><br/>
+<img src="https://user-images.githubusercontent.com/58348662/147869832-7f0b5331-3927-4887-bbac-782e16dab4e1.png" width="500">
+  
+> (1) 프레임 별 scss 파일 - `언더바(_)` 사용  
+  : `언더바(_)`를 붙이지 않으면 분할 된 파일들도 모두 컴파일되면서 `.css` 파일이 나눠서 저장되기 때문에 `.scss` 파일 이름 앞에 '_'를 붙여 저장한다. 이렇게 하면 Sass에게 이 파일이 main 파일의 일부분임을 알려줘서 해당 파일은 `.css` 파일로 컴파일하지 않고 내부에서 `@import` 형태로 작동하게 된다.  
+  
+> (2) 메인 scss 파일  
+  : 분할된 `.scss` 파일을 import 하는 용도로 사용되며, 컴파일 시 `.css` 파일이 자동으로 생성된다.
 
-1. 파일 분리
 
-> ![image](https://user-images.githubusercontent.com/58348662/147811980-1b4b0f6c-915b-4d84-96e7-02b7e9100f59.png)
-
-2. Nesting
+📌 Nesting
+  > 기존 CSS는 부모에게 상속된 자식 요소에 스타일을 적용할 때 매번 최상위 선택자를 반복 선언해야 된다는 문제가 있지만, 중첩을 사용하면 최상위 선택자를 한 번만 선언하여도 되기에 코드의 반복을 줄일 수 있다.
+  ```css
+  /* CSS */
+  info-list div {
+    display: flex;
+    font-size: 14px;
+    color: #4f4f4f;
+  }
+  info-list div dt {
+    font-weight: 700;
+    margin-right: 7px;
+  }
+  ```
+  ```scss
+  /* SCSS */
+  info-list {
+    div {
+      display: flex;
+      font-size: 14px;
+      color: #4f4f4f;
+      dt {
+        font-weight: 700;
+        margin-right: 7px;
+      }
+    }
+  }
+  ```
+  
+  (1) 속성 Nesting
+  ```scss
+  .add-icon {
+    background : {
+      image: url("./image.png");
+      position: center center;
+      repeat: no-repeat;
+      size: 14px 14px;
+    }
+  }
+  ```
+  
+  (2) Ampersand(&)
+  ```scss
+  .box {
+  // 가상선택자
+    &:focus{} 
+    &:hover{}
+    &:active{}
+    &:first-child{}
+    &:nth-child(2){}
+  // 가상요소
+    &::after{} 
+    &::before{}
+  // 공통 클래스명 중첩
+    &-red { background: #ffd700; }
+    &-yellow { background: #ff6347; }
+  }
+  ```
+  
+  (3) @at-root
+  : 중첩에서 벗어나고 싶은 선택자 앞에 작성
+ 
 
 </div>
 </details>
