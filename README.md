@@ -86,7 +86,15 @@
   
   (3) @at-root
   : 중첩에서 벗어나고 싶은 선택자 앞에 작성
- 
+  ```scss
+  .article-content {
+    font-size: 14px;
+    opacity: 0.7;
+    @at-root i {
+      opacity: 0.5;
+    }
+  }
+  ```
 
 </div>
 </details>
