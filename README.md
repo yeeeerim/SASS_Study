@@ -101,3 +101,80 @@
 </div>
 </details>
 
+<!---------------------------------------------------------------------------------------------------------------->
+
+<details>
+<summary>[2] 변수 (Variable)</summary>
+<div markdown="1">
+  <br/>
+📌 변수 생성 및 사용 : `$`
+  
+```scss
+$bgColor: #FFF;
+$font-p: 13px;
+$base-font: 'Noto Sans KR', sans-serif;
+
+body {
+  background-color: $bgColor;
+  font-size: $font-p;
+  font-family: $base-font;
+}
+```
+  
+📌 TYPE  
+  
+  |type|ex|
+  |:-:|------|
+  |numbers|1, .82, 20px, 2em|
+  |strings|"./images/a.png", bold, left, uppercase|
+  |colors|green, #FFF, rbga(255,0,0,.5)|
+  |booleans|true, false|
+  |null|null|
+  |lists|$sizes: 10px 12px 16px|
+  |maps|$weights: ("r":400, "m":500, "b":700)|
+  
+
+📌 Lists, Maps
+  - Lists
+  > `,`, ` `, `/` 로 구분하여 작성  
+  index 값이 0이 아닌 1부터 시작하며, -1은 마지막 index를 가르킴  
+  
+|function|description|
+|:-:|-----|
+|append(list, value, [separator])|lists의 값을 추가|
+|index(list, value)|lists의 값에 대한 인덱스를 리턴|
+|nth(list, n)|lists의 n번째 인덱스에 해당하는 값 리턴|
+  
+  - Maps
+  > `(키:값, 키:값, ...)` 형태로 저장하여 사용
+
+|function|description|
+|:-:|-----|
+|map-get(map,key)|키에 해당하는 값을 리턴|
+|map-keys(map)|map에 들어있는 키를 전부 리턴|
+|map-values(map)|map에 들어있는 값 전부 리턴|
+  
+📌 SCOPE
+  - local
+  > 선언한 자신을 감싸고 있는 중괄호 안에서 사용되며, 하위 단계에 있는 중괄호 안에서도 사용 가능 (뒤에 !global을 붙여 전역변수로 변경 가능)
+  - global
+  > 가장 윗부분에 정의함으로써 파일 내에 어디서든 사용 가능
+  
+📌 OPERATOR
+  > 1. 비교연산자 - 숫자 ( `<`, `<=`, `>`, `>=` `==`, `!=` )  
+  > 2. 산술연산자 - 숫자/색 ( `+`, `-`, `*`, `/`, `%` )  
+  > 3. 문자열 ( `a+b` )  
+  > 4. 논리연산자 ( `not`, `and`, `or` )  
+
+</div>
+</details>
+
+
+
+<!-- <details>
+<summary></summary>
+<div markdown="1">
+
+
+</div>
+</details> -->
