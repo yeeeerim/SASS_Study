@@ -1,0 +1,30 @@
+///// variables
+$bgColor: red;
+$font-h1: 28px;
+// list
+$valid-sides: left, center, right;
+// map
+$font-sizes: (
+  "myh1": 45px,
+  "myh2": 19px,
+  "myp": 16px,
+);
+
+///// scss
+h1 {
+  $spanColor: blue; // local variable
+  color: $bgColor;
+  font-size: $font-h1;
+  span {
+    color: $spanColor; // ok
+  }
+}
+
+p {
+  text-align: nth($valid-sides, 2);
+  //color: $spanColor -> error
+}
+
+h2 {
+  font-size: map-get($font-sizes, "myh2") * 2; // 연산 가능
+}
