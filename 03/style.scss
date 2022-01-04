@@ -1,0 +1,52 @@
+@mixin flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+}
+
+@mixin flexCenterTwo($size) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  li {
+    margin-right: $size;
+  }
+}
+
+@mixin flexCenterThree($size : 30px) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  li {
+    margin-right: $size;
+  }
+  @content
+}
+
+.one {
+  // @include flexCenter;
+  background-color: rgb(255, 177, 177);
+  // li {
+  //   margin-right: 10px;
+  // }
+
+  @include flexCenterTwo(10px);
+}
+
+.two {
+  // @include flexCenter;
+  background-color: rgb(192, 191, 255);
+  // li {
+  //   margin-right: 20px;
+  // }
+
+  @include flexCenterTwo(20px);
+}
+
+.three {
+  background-color: rgb(241, 255, 190);
+  @include flexCenterThree(){color:rgb(255, 0, 0)};
+}
