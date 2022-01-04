@@ -170,11 +170,62 @@ body {
 </details>
 
 
+<!---------------------------------------------------------------------------------------------------------------->
+
+
+
+<details>
+<summary>[3] Mixin</summary>
+<div markdown="1">
+  <br/>
+
+> 코드를 재사용하기 위해 만들어진 기능
+```scss
+@mixin 이름(매개변수) {  // 생성
+  // 중복되는 코드
+}
+@include 이름(인수) // 사용
+```
+
+  📌 Default Value  
+  ```scss
+  @mixin flexCenter($size : 10px) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+    li {
+      margin-right: $size;
+    }
+}
+  ```
+  
+  📌 Content  
+  > `@content`를 사용하면 원하는 부분에 스타일을 추가하여 전달할 수 있다.
+  ```scss
+  @mixin flexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @content
+  }
+  .card {
+    @include flexCenter{ color: white; };
+  }
+  ```
+  
+</div>
+</details>
+
+
+
+<!---------------------------------------------------------------------------------------------------------------->
+
+
 
 <!-- <details>
 <summary></summary>
 <div markdown="1">
-
+  <br/>
 
 </div>
 </details> -->
