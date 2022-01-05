@@ -222,6 +222,64 @@ body {
 
 
 
+<details>
+<summary>[4] Extend</summary>
+<div markdown="1">
+<br/>
+
+> 연관 있는 선택자들에 동일한 소스코드를 적용하기 위함 (mixin은 연관 없는 선택자에서 조금 다른 스타일을 적용하기 위함)
+  
+📌 Class 이름 가져오기
+```scss
+  .profile-user {
+    background-image: url('./profile.png');
+    background-size: cover;
+    background-position: 50% 50%;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+  }
+  
+  .comment-user {
+    @extend .profile-user;
+  }
+```
+  
+  
+📌 Placeholder(%) 사용하기
+  > %선택자는 CSS로 컴파일되지 않는다. (class보다 %사용을 권장)
+```scss
+  %base-button {
+    width: 133px;
+    height: 44px;
+    border-radius: 10px;
+  }
+  
+  .btn-1 {
+    @extend %base-button;
+    background-color: #FFF;
+    color: #ff375f;
+    border: 3px solid #ff375f;
+  }
+  
+  .btn-2 {
+    @extend %base-button;
+    background-color: #ff375f;
+    color: white;
+  }
+```
+  
+  
+</div>
+</details>
+
+
+
+
+<!---------------------------------------------------------------------------------------------------------------->
+
+
+
 <!-- <details>
 <summary></summary>
 <div markdown="1">
