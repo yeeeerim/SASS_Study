@@ -1,0 +1,125 @@
+// if문 예시 작성
+// circle이 false면 사각형을, true이면 원형으로 스타일함
+@mixin avatar($size, $circle: false) {
+  width: $size;
+  height: $size;
+
+  @if $circle {
+    border-radius: $size / 2;
+  }
+}
+
+.square-av {
+  @include avatar(100px, $circle: false);
+  background-color: antiquewhite;
+}
+.circle-av {
+  @include avatar(100px, $circle: true);
+  background-color: blueviolet;
+}
+
+// else문
+// ture이면 밝은 색을, false면 어두운 색을 스타일함
+$light-background: #f2ece4;
+$light-text: #036;
+$dark-background: #6b717f;
+$dark-text: #d2e1dd;
+
+@mixin theme-colors($light-theme: true) {
+  @if $light-theme {
+    background-color: $light-background;
+    color: $light-text;
+  } @else {
+    background-color: $dark-background;
+    color: $dark-text;
+  }
+}
+
+.banner {
+  @include theme-colors($light-theme: true);
+  body.dark & {
+    @include theme-colors($light-theme: false);
+  }
+}
+
+// if, else if, else문
+// 조건에 해당하는 방향에 맞춰서 border-bottom 컬러를 스타일함
+@mixin triangle($size, $color, $direction) {
+  height: 0;
+  width: 0;
+
+  border-color: transparent;
+  border-style: solid;
+  border-width: ($size/2);
+
+  @if $direction == up {
+    border-bottom-color: $color;
+  } @else if $direction == right {
+    border-left-color: $color;
+  } @else if $direction == down {
+    border-top-color: $color;
+  } @else if $direction == left {
+    border-right-color: $color;
+  } @else {
+    @error "Unknown direction #{$direction}.";
+  }
+}
+
+.next {
+  @include triangle(5px, black, right);
+}
+
+// for문
+// for문을 이용해 nth-선택자에게 각각의 image를 배경에 넣어준다.
+@for $i from 1 through 5 {
+  .photo-box:nth-child(#{$i}) {
+    background-image: url("../assets/phoster#{$i}.png");
+  }
+}
+// 범위 1이상 5이하
+// for문에서 1부터 5까지 반복하라는 의미입니다. 총 5번 반복되면서 코드가 실행된다.
+// 만약 from 3 throught 8 이라면 3에서 8까지 6번 실행된다.
+
+// each문
+// color-palette 리스트에 들어있는 색상을 each문을 사용하여 background에 색상값을 넣어준다.
+$color-palette: #dad5d2 #3a3532 #375945 #5b8767 #a6c198 #dbdfc8;
+
+@each $color in $color-palette {
+  $i: index($color-palette, $color); //index는 list의 내장함수
+  .color-circle:nth-child(#{$i}) {
+    background: $color;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+  }
+}
+
+// while문
+// value값이 base보다 작을 때까지 일정한 값으로 계속 나눠준다.
+@function scale-below($value, $base, $ratio: 1.618) {
+  @while $value > $base {
+    $value: ($value/$ratio);
+  }
+  @return $value;
+}
+
+$normal-font-size: 16px;
+.sup {
+  font-size: scale-below(20px, 16px);
+}
+
+// function
+// 거듭제곱을 구하는 함수
+@function pow($base, $exponent) {
+  $result: 1;
+  @for $_ from 1 through $exponent {
+    // '_': 의미없는 변수
+    $result: $result * $base;
+  }
+  @return $result;
+}
+
+.sidebar {
+  float: left;
+  margin-left: pow(4, 3) * 1px;
+}
