@@ -280,10 +280,102 @@ body {
 
 
 
-<!-- <details>
-<summary></summary>
+<details>
+<summary>[5] 조건문, 반복문, 함수</summary>
 <div markdown="1">
-  <br/>
+<br/>
+📌 조건문  
+  
+1. if 문
+```scss
+  @if (조건) {
+    // 조건이 참일 때 실행될 구문, 소괄호 생략 가능
+  }
+```
+2. else 문
+```scss
+  @if (조건) {
+    // 조건이 참일 때 실행될 구문
+  } @else {
+    // if문의 조건이 거짓일 때 실행될 구문
+  }
+```
+3. if-else 문
+```scss
+  @if (조건) {
+    // 조건이 참일 때 실행될 구문
+  } @else if (조건) {
+    // else if 조건이 참일 때 실행될 구문
+  } @else {
+    // 위 모든 조건이 거짓일 때 실행될 구문
+  }
+```
+  
+📌 반복문  
+1. for 문
+```scss
+  @for ($변수) from (시작) through (끝) {
+    // 반복할 내용
+    // 변수 사용 시 `#{$변수}` 형태로 작성
+  }
+```
+2. each 문
+```scss
+  @each ($변수) in (리스트or맵) {
+    // 반복할 내용
+  }
+```
+3. while 문
+```scss
+  @while 조건 {
+    // 반복할 내용
+  }
+```
+  
+📌 함수  
+1. function
+```scss
+  @function 함수이름 ($매개변수) {
+    // 실행 코드
+    @return 값
+  }
+```
+2. 내장함수  
 
+(1) 색상 함수  
+  
+|function|description|
+|--|-----|
+|lignten(color, amount)|기존 색상의 밝기를 높임(0%-100%)|
+|darken(color, amount)|기존 색상의 밝기를 낮춤(0%-100%)|
+|mix(color1, color2, weight)|2개의 색상을 섞어서 새로운 색상을 만듦|
+  
+(2) 숫자 함수  
+  
+|function|description|
+|--|-----|
+|max(number, ..)|괄호에 넣은 값 중 가장 큰 수를 반환|
+|min(number, ..)|괄호에 넣은 값 중 가장 작은 수를 반환|
+|percentage(number)|퍼센트로 숫자를 바꿈|
+|comparable(num1, num2)|num1과 num2가 비교 가능한지 확인 후 true/false 값 반환|
+  
+(3) 문자 함수  
+  
+|function|description|
+|--|-----|
+|str-insert(string, insert, index)|문자열에 원하는 위치(index)에 문자를 넣은 후 새로운 문자열 반환|
+|str-index(string,substring)|문자열에서 해당 문자의 index 값을 반환|
+|to-upper-case(string)|문자열 전부를 대문자로 바꿔줌|
+|to-lower-case(string)|문자열 전부를 소문자로 바꿔줌|
+  
+(4) 확인 함수  
+  
+|function|description|
+|--|-----|
+|unit(number)|숫자의 단위를 반환해줌|
+|unitless(number)|단위를 가지고 있는지 판단하여 true/false 값을 반환|
+|variable-exists(name)|변수가 현재 범위에 존재하는지 판단하여 true/flase 값을 반환. 이 함수의 인수는 `$`없이 사용|
+
+  
 </div>
-</details> -->
+</details>
